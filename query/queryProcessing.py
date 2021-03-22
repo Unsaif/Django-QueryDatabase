@@ -4,6 +4,7 @@ import pandas as pd
 from requests import get
 import re
 import urllib.request
+pd.options.mode.chained_assignment = None
 
 def df_cleaning(df):
     df = df.dropna()
@@ -50,6 +51,15 @@ def control_group(testdf, controldf):
     anonymized_list = []
     sample_list = []
 
+    maletestdf = data_search[data_search["sex"] == "male"]
+    femaletestdf = data_search[data_search["sex"] == "female"]
+    
+    malefecestestdf = maletestdf[maletestdf["body_site"] == "UBERON:feces"]
+    malenotfecestestdf = maletestdf[maletestdf["body_site"] != "UBERON:feces"]
+    
+    femalefecestestdf = femaletestdf[femaletestdf["body_site"] == "UBERON:feces"]
+    femalenotfecestestdf = femaletestdf[femaletestdf["body_site"] != "UBERON:feces"]
+
     for ind, entry in data.iterrows():
 
         anony = entry["anonymized_name"]
@@ -59,35 +69,59 @@ def control_group(testdf, controldf):
         years_old = entry["age_years"]
         body_mass_index = entry["bmi"]
         body_site = entry["body_site"]
-    
-        search = data_search[data_search["sex"] == gender]
-        search = search[search["body_site"] == body_site]
-
-        for sample in sample_list:
-            search = search[search["anonymized_name"] != sample]
-
-        search = search[search["age_years"] == years_old]
-    
-        if len(search) == 0:
-            i = 1
-            while len(search) == 0:
-                search = data_search[data_search["sex"] == gender]
-                search = search[search["body_site"] == body_site]
-                search = search[(search["age_years"] <= years_old + i) & (search["age_years"] >= years_old - i)]
-                i += 1
-    
-        control = search.iloc[(search['bmi']-float(body_mass_index)).abs().argsort()[:1]]
-        identity = control["anonymized_name"].values[0]
         
-        sample_name_list.append(control["sample_name"].values[0])
-        age_list.append(control["age_years"].values[0])
-        sex_list.append(control["sex"].values[0])
-        bmi_list.append(control["bmi"].values[0])
-        body_site_list.append(control["body_site"].values[0])
-        anonymized_list.append(identity)
+        if gender == 'male':
+            if body_site == 'UBERON:feces':
+                search = malefecestestdf
+            else:
+                search = malenotfecestestdf[malenotfecestestdf["body_site"] == body_site]
+        else:
+            if body_site == 'UBERON:feces':
+                search = femalefecestestdf
+            else:
+                search = femalenotfecestestdf[femalenotfecestestdf["body_site"] == body_site]
     
-        idx = data_search.index[data_search["anonymized_name"] == identity][0]
-        data_search.drop(idx, inplace = True)
+        #for sample in sample_list:
+            #search = search[search["anonymized_name"] != sample]
+
+        if len(search) == 0:
+            pass
+        else:
+            this_search = search[search["age_years"] == years_old]
+        
+            if len(this_search) == 0:
+                i = 1
+                while (len(this_search) == 0) or (i > 50):
+                    this_search = search[(search["age_years"] <= years_old + i) & (search["age_years"] >= years_old - i)]
+                    i += 1
+
+            if len(this_search) == 0:
+                pass
+            else:
+                control = this_search.iloc[(this_search['bmi']-float(body_mass_index)).abs().argsort()[:1]]
+                identity = control["anonymized_name"].values[0]
+                
+                sample_name_list.append(control["sample_name"].values[0])
+                age_list.append(control["age_years"].values[0])
+                sex_list.append(control["sex"].values[0])
+                bmi_list.append(control["bmi"].values[0])
+                body_site_list.append(control["body_site"].values[0])
+                anonymized_list.append(identity)
+
+                if gender == 'male':
+                    if body_site == 'UBERON:feces':
+                        idx = malefecestestdf.index[malefecestestdf["anonymized_name"] == identity][0]
+                        malefecestestdf.drop(idx, inplace = True)
+                    else:
+                        idx = malenotfecestestdf.index[malenotfecestestdf["anonymized_name"] == identity][0]
+                        malenotfecestestdf.drop(idx, inplace = True)
+                else:
+                    if body_site == 'UBERON:feces':
+                        idx = femalefecestestdf.index[femalefecestestdf["anonymized_name"] == identity][0]
+                        femalefecestestdf.drop(idx, inplace = True)
+                    else:
+                        idx = femalenotfecestestdf.index[femalenotfecestestdf["anonymized_name"] == identity][0]
+                        femalenotfecestestdf.drop(idx, inplace = True)
     
     control_dic = {"sample_name": sample_name_list, "anoymized_name": anonymized_list, "age_years": age_list, "sex": sex_list, "bmi": bmi_list, "body_site": body_site_list}
     control_group = pd.DataFrame(control_dic) 
@@ -124,7 +158,6 @@ def qp(query, cursor):
         control_result = cursor.fetchall()
 
         control = pd.DataFrame(control_result, columns=["sample_name", "anonymized_name", "age_years", "bmi", "sex", "body_site"])
-
         control = df_cleaning(control)
 
         control_individuals = len(control_result)
