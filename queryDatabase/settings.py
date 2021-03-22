@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'american_gut_database',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '72Un0saif96'
+        'USER': 'timhu',
+        'PASSWORD': 'TCY743'
     }
 }
 
