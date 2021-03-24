@@ -1,9 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from .querySearch import qs
 import pandas as pd
-from requests import get
-import re
-import urllib.request
 pd.options.mode.chained_assignment = None
 
 def df_cleaning(df):
