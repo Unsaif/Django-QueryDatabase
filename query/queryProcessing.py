@@ -88,9 +88,11 @@ def control_group(testdf, controldf):
         
             if len(this_search) == 0:
                 i = 1
-                while (len(this_search) == 0) or (i > 50):
+                while (len(this_search) == 0):
                     this_search = search[(search["age_years"] <= years_old + i) & (search["age_years"] >= years_old - i)]
                     i += 1
+                    if i == 10:
+                        break
 
             if len(this_search) == 0:
                 pass
