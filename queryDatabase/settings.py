@@ -74,14 +74,25 @@ WSGI_APPLICATION = 'queryDatabase.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'american_gut_database',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'USER': 'timhu',
+#         'PASSWORD': 'password'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'american_gut_database',
-        'HOST': '127.0.0.1',
+        'NAME': os.getenv('DB_NAME', 'American_Gut_Project_PRJEB11419'),
+        'USER': os.getenv('DB_USER', 'mysql'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'mspgnuig'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': '3306',
-        'USER': 'timhu',
-        'PASSWORD': 'password'
     }
 }
 
