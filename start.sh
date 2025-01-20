@@ -7,4 +7,4 @@ while ! nc -z db 3306; do
 done
 
 echo "MySQL is ready! Starting Django server..."
-python3 manage.py runserver 0.0.0.0:8002
+python3 manage.py runserver 0.0.0.0:8001
