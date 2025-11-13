@@ -4,16 +4,22 @@ from .queryProcessing import qp
 
 
 class AjaxFormMixin(object):
+    def _is_ajax(self, request):
+        """
+        Django 4+ removed HttpRequest.is_ajax, so rely on the header directly.
+        """
+        return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
     def form_invalid(self, form):
         response = super(AjaxFormMixin, self).form_invalid(form)
-        if self.request.is_ajax():
+        if self._is_ajax(self.request):
             return JsonResponse(form.errors, status=400)
         else:
             return response
 
     def form_valid(self, form):
         response = super(AjaxFormMixin, self).form_valid(form)
-        if self.request.is_ajax():
+        if self._is_ajax(self.request):
             
             query = form.cleaned_data['query']
             mycursor = connection.cursor()
