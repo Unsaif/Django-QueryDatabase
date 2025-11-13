@@ -23,8 +23,12 @@ def accession_retrieval(result, cursor):
         else:
             samples.append(i[0])
 
-    sql = "SELECT sample_title, run_accession, fastq_ftp, secondary_sample_accession, american_gut_attributes.anonymized_name FROM prjeb11419 INNER JOIN american_gut_attributes ON prjeb11419.sample_title=american_gut_attributes.sample_name WHERE sample_title IN (" + str(samples)[1:len(str(samples)) - 1] + ")" 
-    cursor.execute(sql)
+    if not samples:
+        return [], []
+
+    placeholders = ','.join(['%s'] * len(samples))
+    sql = "SELECT sample_title, run_accession, fastq_ftp, secondary_sample_accession, american_gut_attributes.anonymized_name FROM prjeb11419 INNER JOIN american_gut_attributes ON prjeb11419.sample_title=american_gut_attributes.sample_name WHERE sample_title IN (" + placeholders + ")" 
+    cursor.execute(sql, samples)
     sample_accessions = cursor.fetchall()
     
     accessions = []

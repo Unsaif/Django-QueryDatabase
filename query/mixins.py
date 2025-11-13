@@ -1,6 +1,9 @@
+import logging
 from django.http import JsonResponse, HttpResponse
 from django.db import connection
 from .queryProcessing import qp
+
+logger = logging.getLogger(__name__)
 
 
 class AjaxFormMixin(object):
@@ -20,8 +23,16 @@ class AjaxFormMixin(object):
     def form_valid(self, form):
         response = super(AjaxFormMixin, self).form_valid(form)
         if self._is_ajax(self.request):
-            
             query = form.cleaned_data['query']
             mycursor = connection.cursor()
-        
-            return qp(query, mycursor)
+            try:
+                return qp(query, mycursor)
+            except Exception as exc:
+                logger.exception("Query processing failed for '%s'", query)
+                return JsonResponse(
+                    {
+                        'error': 'Server error while processing query: {}'.format(exc),
+                        'query': query,
+                    },
+                    status=500,
+                )

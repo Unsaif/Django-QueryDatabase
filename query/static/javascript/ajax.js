@@ -186,7 +186,11 @@ $(document).ready(function(){
     }
 
     function handleFormError(jqXHR, textStatus, errorThrown){
-        alert("Either no individual was found matching your query or query structure was wrong. Please check query");
+        var message = "Either no individual was found matching your query or query structure was wrong. Please check query";
+        if (jqXHR.responseJSON && jqXHR.responseJSON.error){
+            message = jqXHR.responseJSON.error;
+        }
+        alert(message);
         console.log(jqXHR)
         console.log(textStatus)
         console.log(errorThrown)
