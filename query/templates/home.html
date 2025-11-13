@@ -16,8 +16,8 @@
   </head>
   <body>
     <div class="container-fluid">
-    <!--Query Bar my-ajax-form-->
-        <form class='my-ajax-form' method ='POST' action='.' data-url='{{ request.build_absolute_uri|safe }}'> {% csrf_token %}
+    <!--Query Bar my-ajax-form {{ request.build_absolute_uri|safe }}-->
+        <form class='my-ajax-form' method ='POST' action='.' data-url='{{ request.path }}'> {% csrf_token %}
             <div class="row">
                 <div class="p-2 col-md-2"><h2 class="lead">Attributes</h2></div>
                 <div class='p-2 col-md-8'>

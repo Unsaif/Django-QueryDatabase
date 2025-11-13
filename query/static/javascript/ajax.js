@@ -30,20 +30,44 @@ $.ajaxSetup({
     }
 });
 
-$(document).ready(function(){
-    var $myForm = $('.my-ajax-form')
-    $myForm.submit(function(event){
-        event.preventDefault()
-        var $formData = $(this).serialize()
-        var $thisURL = $myForm.attr('data-url') || window.location.href // or set your own url
-        $.ajax({
-            method: "POST",
-            url: $thisURL,
-            data: $formData,
-            success: handleFormSuccess,
-            error: handleFormError,
-        })
-    })
+// $(document).ready(function(){
+//     var $myForm = $('.my-ajax-form')
+//     $myForm.submit(function(event){
+//         event.preventDefault()
+//         var $formData = $(this).serialize()
+//         var $thisURL = $myForm.attr('data-url') || window.location.href // or set your own url
+//         $.ajax({
+//             method: "POST",
+//             url: $thisURL,
+//             data: $formData,
+//             success: handleFormSuccess,
+//             error: handleFormError,
+//         })
+//     })
+
+    $(document).ready(function(){
+        var $myForm = $('.my-ajax-form');
+
+        $myForm.submit(function(event){
+            event.preventDefault();
+
+            var $form = $(this);
+            var formData = $form.serialize();
+
+            // Prefer the form's data-url as a *relative* path, or fall back to current path
+            var thisURL = $form.data('url') || window.location.pathname;
+
+            // If you really want absolute:
+            // var thisURL = $form.data('url') || (window.location.origin + window.location.pathname);
+
+            $.ajax({
+                method: "POST",
+                url: thisURL,
+                data: formData,
+                success: handleFormSuccess,
+                error: handleFormError,
+            });
+        });
 
     function dataProcessing(data, tc){
         
