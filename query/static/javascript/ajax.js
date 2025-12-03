@@ -154,7 +154,7 @@ $.ajaxSetup({
             var download = ftp[n];
             var downloadName = accession[n];
 
-            temporaryDownloadLink.setAttribute('href', "http://".concat(download));
+            temporaryDownloadLink.setAttribute('href', "https://".concat(download));
             temporaryDownloadLink.setAttribute('download', downloadName.toString().concat(".fastq.gz"));
             temporaryDownloadLink.setAttribute("class", tc);
 
