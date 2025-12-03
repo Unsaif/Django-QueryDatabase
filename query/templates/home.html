@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,28 +14,41 @@
     <script src="https://unpkg.com/jszip@3.1.5/dist/jszip.js"></script>
     <script src="https://unpkg.com/bluebird@3.5.1/js/browser/bluebird.js"></script>
 
-  </head>
-  <body>
+</head>
+
+<body class="fade-in">
     <div class="container-fluid">
-    <!--Query Bar my-ajax-form {{ request.build_absolute_uri|safe }}-->
-        <form class='my-ajax-form' method ='POST' action='.' data-url='{{ request.path }}'> {% csrf_token %}
-            <div class="row">
-                <div class="p-2 col-md-2"><h2 class="lead">Attributes</h2></div>
-                <div class='p-2 col-md-8'>
-                    <input type="text" class="form-control" name="query" maxlength="255" required id="id_query" value="" onfocus="if (this.value=='Query') this.value='';" target="_query">
+        <!--Query Bar my-ajax-form {{ request.build_absolute_uri|safe }}-->
+        <div class="row justify-content-center mt-4 mb-4">
+            <div class="col-md-10">
+                <div class="glass-panel">
+                    <form class='my-ajax-form' method='POST' action='.' data-url='{{ request.path }}'> {% csrf_token %}
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <h2 class="mb-0 text-white">QueryDB</h2>
+                            </div>
+                            <div class='col-md-9'>
+                                <input type="text" class="form-control form-control-lg" name="query" maxlength="255"
+                                    required id="id_query" placeholder="Enter your query..." value="" target="_query">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
-        
+        </div>
 
-    <!--Attributes Table-->
+
+        <!--Attributes Table-->
         <div class="row">
-            <div class="col-md-2">
-                <aside class="bd-sidebar">
-                    <nav id="collapse bd-links" class="navbar navbar-expand d-flex flex-column align-item-start overflow-auto vh-100">     
-                        <ul class="list-unstyled mb-0 py-3 px-1 pt-md-1">
+            <div class="col-md-3">
+                <aside class="bd-sidebar glass-panel h-100">
+                    <nav id="collapse bd-links"
+                        class="navbar navbar-expand d-flex flex-column align-item-start overflow-auto"
+                        style="height: 80vh;">
+                        <ul class="list-unstyled mb-0 py-3 px-1 pt-md-1 w-100">
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse1' aria-expanded='true'>Acid Reflux</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse1' aria-expanded='true'>Acid Reflux</button>
                                 <div class='collapse' id='collapse1'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -47,7 +61,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse2' aria-expanded='true'>Acne Medication</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse2' aria-expanded='true'>Acne Medication</button>
                                 <div class='collapse' id='collapse2'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -58,7 +73,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse3' aria-expanded='true'>Acne Medication Otc</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse3' aria-expanded='true'>Acne Medication Otc</button>
                                 <div class='collapse' id='collapse3'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -69,7 +85,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse4' aria-expanded='true'>Add Adhd</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse4' aria-expanded='true'>Add Adhd</button>
                                 <div class='collapse' id='collapse4'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Diagnosed by a medical professional (doctor, physician assistant)</li>
@@ -82,7 +99,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse5' aria-expanded='true'>Age Cat</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse5' aria-expanded='true'>Age Cat</button>
                                 <div class='collapse' id='collapse5'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>60s</li>
@@ -100,7 +118,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse6' aria-expanded='true'>Age Corrected</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse6' aria-expanded='true'>Age Corrected</button>
                                 <div class='collapse' id='collapse6'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1</li>
@@ -109,7 +128,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse7' aria-expanded='true'>Age Years</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse7' aria-expanded='true'>Age Years</button>
                                 <div class='collapse' id='collapse7'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -118,7 +138,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse8' aria-expanded='true'>Alcohol Consumption</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse8' aria-expanded='true'>Alcohol Consumption</button>
                                 <div class='collapse' id='collapse8'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>true</li>
@@ -129,7 +150,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse9' aria-expanded='true'>Alcohol Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse9' aria-expanded='true'>Alcohol Frequency</button>
                                 <div class='collapse' id='collapse9'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -143,7 +165,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse10' aria-expanded='true'>Alcohol Types Beercider</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse10' aria-expanded='true'>Alcohol Types Beercider</button>
                                 <div class='collapse' id='collapse10'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -152,7 +175,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse11' aria-expanded='true'>Alcohol Types Red Wine</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse11' aria-expanded='true'>Alcohol Types Red Wine</button>
                                 <div class='collapse' id='collapse11'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -161,7 +185,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse12' aria-expanded='true'>Alcohol Types Sour Beers</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse12' aria-expanded='true'>Alcohol Types Sour Beers</button>
                                 <div class='collapse' id='collapse12'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -170,7 +195,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse13' aria-expanded='true'>Alcohol Types Spiritshard Alcohol</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse13' aria-expanded='true'>Alcohol Types Spiritshard
+                                    Alcohol</button>
                                 <div class='collapse' id='collapse13'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -179,7 +206,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse14' aria-expanded='true'>Alcohol Types Unspecified</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse14' aria-expanded='true'>Alcohol Types Unspecified</button>
                                 <div class='collapse' id='collapse14'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -188,7 +216,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse15' aria-expanded='true'>Alcohol Types White Wine</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse15' aria-expanded='true'>Alcohol Types White Wine</button>
                                 <div class='collapse' id='collapse15'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -197,7 +226,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse16' aria-expanded='true'>Allergic To I Have No Food Allergies That I Know Of</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse16' aria-expanded='true'>Allergic To I Have No Food
+                                    Allergies That I Know Of</button>
                                 <div class='collapse' id='collapse16'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -206,7 +237,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse17' aria-expanded='true'>Allergic To Other</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse17' aria-expanded='true'>Allergic To Other</button>
                                 <div class='collapse' id='collapse17'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -215,7 +247,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse18' aria-expanded='true'>Allergic To Peanuts</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse18' aria-expanded='true'>Allergic To Peanuts</button>
                                 <div class='collapse' id='collapse18'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -224,7 +257,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse19' aria-expanded='true'>Allergic To Shellfish</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse19' aria-expanded='true'>Allergic To Shellfish</button>
                                 <div class='collapse' id='collapse19'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -233,7 +267,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse20' aria-expanded='true'>Allergic To Tree Nuts</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse20' aria-expanded='true'>Allergic To Tree Nuts</button>
                                 <div class='collapse' id='collapse20'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -242,7 +277,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse21' aria-expanded='true'>Allergic To Unspecified</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse21' aria-expanded='true'>Allergic To Unspecified</button>
                                 <div class='collapse' id='collapse21'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -251,7 +287,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse22' aria-expanded='true'>Altitude</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse22' aria-expanded='true'>Altitude</button>
                                 <div class='collapse' id='collapse22'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not applicable</li>
@@ -259,7 +296,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse23' aria-expanded='true'>Alzheimers</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse23' aria-expanded='true'>Alzheimers</button>
                                 <div class='collapse' id='collapse23'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -272,7 +310,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse24' aria-expanded='true'>Anonymized Name</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse24' aria-expanded='true'>Anonymized Name</button>
                                 <div class='collapse' id='collapse24'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1000</li>
@@ -281,7 +320,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse25' aria-expanded='true'>Antibiotic History</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse25' aria-expanded='true'>Antibiotic History</button>
                                 <div class='collapse' id='collapse25'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>6 months</li>
@@ -295,7 +335,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse26' aria-expanded='true'>Appendix Removed</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse26' aria-expanded='true'>Appendix Removed</button>
                                 <div class='collapse' id='collapse26'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>true</li>
@@ -307,7 +348,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse27' aria-expanded='true'>Artificial Sweeteners</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse27' aria-expanded='true'>Artificial Sweeteners</button>
                                 <div class='collapse' id='collapse27'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -321,7 +363,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse28' aria-expanded='true'>Asd</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse28' aria-expanded='true'>Asd</button>
                                 <div class='collapse' id='collapse28'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -334,7 +377,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse29' aria-expanded='true'>Assigned From Geo</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse29' aria-expanded='true'>Assigned From Geo</button>
                                 <div class='collapse' id='collapse29'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not applicable</li>
@@ -342,7 +386,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse30' aria-expanded='true'>Autoimmune</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse30' aria-expanded='true'>Autoimmune</button>
                                 <div class='collapse' id='collapse30'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -355,7 +400,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse31' aria-expanded='true'>Bmi</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse31' aria-expanded='true'>Bmi</button>
                                 <div class='collapse' id='collapse31'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0.0</li>
@@ -364,7 +410,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse32' aria-expanded='true'>Bmi Cat</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse32' aria-expanded='true'>Bmi Cat</button>
                                 <div class='collapse' id='collapse32'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Normal</li>
@@ -377,7 +424,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse33' aria-expanded='true'>Bmi Corrected</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse33' aria-expanded='true'>Bmi Corrected</button>
                                 <div class='collapse' id='collapse33'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>9.63</li>
@@ -386,7 +434,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse34' aria-expanded='true'>Body Habitat</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse34' aria-expanded='true'>Body Habitat</button>
                                 <div class='collapse' id='collapse34'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>UBERON:feces</li>
@@ -402,7 +451,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse35' aria-expanded='true'>Body Product</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse35' aria-expanded='true'>Body Product</button>
                                 <div class='collapse' id='collapse35'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>UBERON:feces</li>
@@ -416,7 +466,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse36' aria-expanded='true'>Body Site</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse36' aria-expanded='true'>Body Site</button>
                                 <div class='collapse' id='collapse36'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>UBERON:feces</li>
@@ -435,7 +486,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse37' aria-expanded='true'>Bowel Movement Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse37' aria-expanded='true'>Bowel Movement Frequency</button>
                                 <div class='collapse' id='collapse37'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Two</li>
@@ -450,7 +502,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse38' aria-expanded='true'>Bowel Movement Quality</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse38' aria-expanded='true'>Bowel Movement Quality</button>
                                 <div class='collapse' id='collapse38'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -466,7 +519,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse39' aria-expanded='true'>Breastmilk Formula Ensure</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse39' aria-expanded='true'>Breastmilk Formula Ensure</button>
                                 <div class='collapse' id='collapse39'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -478,7 +532,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse40' aria-expanded='true'>Cancer</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse40' aria-expanded='true'>Cancer</button>
                                 <div class='collapse' id='collapse40'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -490,7 +545,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse41' aria-expanded='true'>Cancer Treatment</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse41' aria-expanded='true'>Cancer Treatment</button>
                                 <div class='collapse' id='collapse41'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -503,7 +559,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse42' aria-expanded='true'>Cardiovascular Disease</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse42' aria-expanded='true'>Cardiovascular Disease</button>
                                 <div class='collapse' id='collapse42'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -516,7 +573,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse43' aria-expanded='true'>Cat</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse43' aria-expanded='true'>Cat</button>
                                 <div class='collapse' id='collapse43'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -527,7 +585,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse44' aria-expanded='true'>Cdiff</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse44' aria-expanded='true'>Cdiff</button>
                                 <div class='collapse' id='collapse44'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -540,7 +599,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse45' aria-expanded='true'>Census Region</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse45' aria-expanded='true'>Census Region</button>
                                 <div class='collapse' id='collapse45'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Northeast</li>
@@ -553,7 +613,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse46' aria-expanded='true'>Chickenpox</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse46' aria-expanded='true'>Chickenpox</button>
                                 <div class='collapse' id='collapse46'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>true</li>
@@ -565,7 +626,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse47' aria-expanded='true'>Clinical Condition</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse47' aria-expanded='true'>Clinical Condition</button>
                                 <div class='collapse' id='collapse47'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -578,7 +640,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse48' aria-expanded='true'>Collection Month</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse48' aria-expanded='true'>Collection Month</button>
                                 <div class='collapse' id='collapse48'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>April</li>
@@ -599,7 +662,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse49' aria-expanded='true'>Collection Season</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse49' aria-expanded='true'>Collection Season</button>
                                 <div class='collapse' id='collapse49'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Spring</li>
@@ -611,7 +675,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse50' aria-expanded='true'>Consume Animal Products Abx</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse50' aria-expanded='true'>Consume Animal Products
+                                    Abx</button>
                                 <div class='collapse' id='collapse50'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not sure</li>
@@ -623,7 +689,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse51' aria-expanded='true'>Contraceptive</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse51' aria-expanded='true'>Contraceptive</button>
                                 <div class='collapse' id='collapse51'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>No</li>
@@ -638,7 +705,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse52' aria-expanded='true'>Cosmetics Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse52' aria-expanded='true'>Cosmetics Frequency</button>
                                 <div class='collapse' id='collapse52'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -652,7 +720,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse53' aria-expanded='true'>Country</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse53' aria-expanded='true'>Country</button>
                                 <div class='collapse' id='collapse53'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>USA</li>
@@ -707,7 +776,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse54' aria-expanded='true'>Country Of Birth</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse54' aria-expanded='true'>Country Of Birth</button>
                                 <div class='collapse' id='collapse54'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>United States</li>
@@ -831,7 +901,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse55' aria-expanded='true'>Country Residence</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse55' aria-expanded='true'>Country Residence</button>
                                 <div class='collapse' id='collapse55'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -887,7 +958,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse56' aria-expanded='true'>Csection</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse56' aria-expanded='true'>Csection</button>
                                 <div class='collapse' id='collapse56'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>true</li>
@@ -899,7 +971,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse57' aria-expanded='true'>Deodorant Use</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse57' aria-expanded='true'>Deodorant Use</button>
                                 <div class='collapse' id='collapse57'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not use deodorant or an antiperspirant</li>
@@ -912,7 +985,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse58' aria-expanded='true'>Depression Bipolar Schizophrenia</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse58' aria-expanded='true'>Depression Bipolar
+                                    Schizophrenia</button>
                                 <div class='collapse' id='collapse58'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Diagnosed by a medical professional (doctor, physician assistant)</li>
@@ -925,7 +1000,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse59' aria-expanded='true'>Depth</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse59' aria-expanded='true'>Depth</button>
                                 <div class='collapse' id='collapse59'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not applicable</li>
@@ -933,7 +1009,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse60' aria-expanded='true'>Description</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse60' aria-expanded='true'>Description</button>
                                 <div class='collapse' id='collapse60'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>American Gut Project Stool Sample</li>
@@ -955,7 +1032,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse61' aria-expanded='true'>Diabetes</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse61' aria-expanded='true'>Diabetes</button>
                                 <div class='collapse' id='collapse61'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -968,7 +1046,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse62' aria-expanded='true'>Diabetes Type</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse62' aria-expanded='true'>Diabetes Type</button>
                                 <div class='collapse' id='collapse62'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -980,7 +1059,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse63' aria-expanded='true'>Diet Type</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse63' aria-expanded='true'>Diet Type</button>
                                 <div class='collapse' id='collapse63'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Omnivore</li>
@@ -994,7 +1074,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse64' aria-expanded='true'>Dna Extracted</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse64' aria-expanded='true'>Dna Extracted</button>
                                 <div class='collapse' id='collapse64'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1</li>
@@ -1003,7 +1084,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse65' aria-expanded='true'>Dog</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse65' aria-expanded='true'>Dog</button>
                                 <div class='collapse' id='collapse65'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1014,7 +1096,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse66' aria-expanded='true'>Dominant Hand</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse66' aria-expanded='true'>Dominant Hand</button>
                                 <div class='collapse' id='collapse66'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I am right handed</li>
@@ -1026,7 +1109,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse67' aria-expanded='true'>Drinking Water Source</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse67' aria-expanded='true'>Drinking Water Source</button>
                                 <div class='collapse' id='collapse67'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Filtered</li>
@@ -1040,7 +1124,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse68' aria-expanded='true'>Drinks Per Session</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse68' aria-expanded='true'>Drinks Per Session</button>
                                 <div class='collapse' id='collapse68'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1055,7 +1140,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse69' aria-expanded='true'>Economic Region</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse69' aria-expanded='true'>Economic Region</button>
                                 <div class='collapse' id='collapse69'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>New England</li>
@@ -1072,7 +1158,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse70' aria-expanded='true'>Elevation</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse70' aria-expanded='true'>Elevation</button>
                                 <div class='collapse' id='collapse70'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>-63.5</li>
@@ -1081,7 +1168,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse71' aria-expanded='true'>Env Biome</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse71' aria-expanded='true'>Env Biome</button>
                                 <div class='collapse' id='collapse71'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>dense settlement biome</li>
@@ -1090,7 +1178,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse72' aria-expanded='true'>Env Feature</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse72' aria-expanded='true'>Env Feature</button>
                                 <div class='collapse' id='collapse72'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>human-associated habitat</li>
@@ -1099,7 +1188,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse73' aria-expanded='true'>Env Material</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse73' aria-expanded='true'>Env Material</button>
                                 <div class='collapse' id='collapse73'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>feces</li>
@@ -1113,7 +1203,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse74' aria-expanded='true'>Env Package</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse74' aria-expanded='true'>Env Package</button>
                                 <div class='collapse' id='collapse74'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>human-gut</li>
@@ -1126,7 +1217,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse75' aria-expanded='true'>Epilepsy Or Seizure Disorder</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse75' aria-expanded='true'>Epilepsy Or Seizure
+                                    Disorder</button>
                                 <div class='collapse' id='collapse75'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1139,7 +1232,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse76' aria-expanded='true'>Exercise Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse76' aria-expanded='true'>Exercise Frequency</button>
                                 <div class='collapse' id='collapse76'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Regularly (3-5 times/week)</li>
@@ -1153,7 +1247,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse77' aria-expanded='true'>Exercise Location</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse77' aria-expanded='true'>Exercise Location</button>
                                 <div class='collapse' id='collapse77'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Outdoors</li>
@@ -1167,7 +1262,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse78' aria-expanded='true'>Fed As Infant</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse78' aria-expanded='true'>Fed As Infant</button>
                                 <div class='collapse' id='collapse78'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Primarily infant formula</li>
@@ -1180,7 +1276,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse79' aria-expanded='true'>Fermented Plant Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse79' aria-expanded='true'>Fermented Plant Frequency</button>
                                 <div class='collapse' id='collapse79'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1194,7 +1291,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse80' aria-expanded='true'>Flossing Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse80' aria-expanded='true'>Flossing Frequency</button>
                                 <div class='collapse' id='collapse80'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1208,7 +1306,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse81' aria-expanded='true'>Flu Vaccine Date</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse81' aria-expanded='true'>Flu Vaccine Date</button>
                                 <div class='collapse' id='collapse81'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>6 months</li>
@@ -1222,7 +1321,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse82' aria-expanded='true'>Frozen Dessert Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse82' aria-expanded='true'>Frozen Dessert Frequency</button>
                                 <div class='collapse' id='collapse82'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Rarely (less than once/week)</li>
@@ -1236,7 +1336,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse83' aria-expanded='true'>Fruit Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse83' aria-expanded='true'>Fruit Frequency</button>
                                 <div class='collapse' id='collapse83'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1250,7 +1351,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse84' aria-expanded='true'>Fungal Overgrowth</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse84' aria-expanded='true'>Fungal Overgrowth</button>
                                 <div class='collapse' id='collapse84'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1263,7 +1365,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse85' aria-expanded='true'>Geo Loc Name</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse85' aria-expanded='true'>Geo Loc Name</button>
                                 <div class='collapse' id='collapse85'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>USA:MA</li>
@@ -1466,20 +1569,23 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse86' aria-expanded='true'>Gluten</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse86' aria-expanded='true'>Gluten</button>
                                 <div class='collapse' id='collapse86'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>No</li>
                                         <li>Not provided</li>
                                         <li>I do not eat gluten because it makes me feel bad</li>
-                                        <li>I was diagnosed with gluten allergy (anti-gluten IgG), but not celiac disease</li>
+                                        <li>I was diagnosed with gluten allergy (anti-gluten IgG), but not celiac
+                                            disease</li>
                                         <li>I was diagnosed with celiac disease</li>
                                         <li>Not applicable</li>
                                     </ul>
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse87' aria-expanded='true'>Has Physical Specimen</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse87' aria-expanded='true'>Has Physical Specimen</button>
                                 <div class='collapse' id='collapse87'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1</li>
@@ -1488,7 +1594,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse88' aria-expanded='true'>Height Cm</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse88' aria-expanded='true'>Height Cm</button>
                                 <div class='collapse' id='collapse88'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1497,7 +1604,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse89' aria-expanded='true'>Height Units</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse89' aria-expanded='true'>Height Units</button>
                                 <div class='collapse' id='collapse89'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>centimeters</li>
@@ -1506,7 +1614,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse90' aria-expanded='true'>High Fat Red Meat Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse90' aria-expanded='true'>High Fat Red Meat
+                                    Frequency</button>
                                 <div class='collapse' id='collapse90'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Rarely (less than once/week)</li>
@@ -1520,7 +1630,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse91' aria-expanded='true'>Homecooked Meals Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse91' aria-expanded='true'>Homecooked Meals
+                                    Frequency</button>
                                 <div class='collapse' id='collapse91'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1534,7 +1646,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse92' aria-expanded='true'>Host Common Name</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse92' aria-expanded='true'>Host Common Name</button>
                                 <div class='collapse' id='collapse92'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>human</li>
@@ -1543,7 +1656,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse93' aria-expanded='true'>Host Taxid</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse93' aria-expanded='true'>Host Taxid</button>
                                 <div class='collapse' id='collapse93'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>9606</li>
@@ -1552,7 +1666,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse94' aria-expanded='true'>Ibd</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse94' aria-expanded='true'>Ibd</button>
                                 <div class='collapse' id='collapse94'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1565,7 +1680,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse95' aria-expanded='true'>Ibd Diagnosis</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse95' aria-expanded='true'>Ibd Diagnosis</button>
                                 <div class='collapse' id='collapse95'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1576,7 +1692,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse96' aria-expanded='true'>Ibd Diagnosis Refined</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse96' aria-expanded='true'>Ibd Diagnosis Refined</button>
                                 <div class='collapse' id='collapse96'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1590,7 +1707,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse97' aria-expanded='true'>Ibs</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse97' aria-expanded='true'>Ibs</button>
                                 <div class='collapse' id='collapse97'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1603,7 +1721,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse98' aria-expanded='true'>Kidney Disease</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse98' aria-expanded='true'>Kidney Disease</button>
                                 <div class='collapse' id='collapse98'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1616,7 +1735,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse99' aria-expanded='true'>Lactose</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse99' aria-expanded='true'>Lactose</button>
                                 <div class='collapse' id='collapse99'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1627,7 +1747,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse100' aria-expanded='true'>Last Move</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse100' aria-expanded='true'>Last Move</button>
                                 <div class='collapse' id='collapse100'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I have lived in my current state of residence for more than a year.</li>
@@ -1641,7 +1762,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse101' aria-expanded='true'>Last Travel</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse101' aria-expanded='true'>Last Travel</button>
                                 <div class='collapse' id='collapse101'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I have not been outside of my country of residence in the past year.</li>
@@ -1655,7 +1777,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse102' aria-expanded='true'>Latitude</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse102' aria-expanded='true'>Latitude</button>
                                 <div class='collapse' id='collapse102'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>-45.9</li>
@@ -1664,7 +1787,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse103' aria-expanded='true'>Level Of Education</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse103' aria-expanded='true'>Level Of Education</button>
                                 <div class='collapse' id='collapse103'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Some graduate school or professional</li>
@@ -1680,7 +1804,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse104' aria-expanded='true'>Liver Disease</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse104' aria-expanded='true'>Liver Disease</button>
                                 <div class='collapse' id='collapse104'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1693,7 +1818,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse105' aria-expanded='true'>Livingwith</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse105' aria-expanded='true'>Livingwith</button>
                                 <div class='collapse' id='collapse105'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1705,7 +1831,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse106' aria-expanded='true'>Longitude</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse106' aria-expanded='true'>Longitude</button>
                                 <div class='collapse' id='collapse106'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>-166.5</li>
@@ -1714,7 +1841,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse107' aria-expanded='true'>Lowgrain Diet Type</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse107' aria-expanded='true'>Lowgrain Diet Type</button>
                                 <div class='collapse' id='collapse107'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1725,7 +1853,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse108' aria-expanded='true'>Lung Disease</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse108' aria-expanded='true'>Lung Disease</button>
                                 <div class='collapse' id='collapse108'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1738,7 +1867,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse109' aria-expanded='true'>Meat Eggs Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse109' aria-expanded='true'>Meat Eggs Frequency</button>
                                 <div class='collapse' id='collapse109'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Rarely (less than once/week)</li>
@@ -1752,7 +1882,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse110' aria-expanded='true'>Mental Illness</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse110' aria-expanded='true'>Mental Illness</button>
                                 <div class='collapse' id='collapse110'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1763,7 +1894,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse111' aria-expanded='true'>Mental Illness Type Anorexia Nervosa</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse111' aria-expanded='true'>Mental Illness Type Anorexia
+                                    Nervosa</button>
                                 <div class='collapse' id='collapse111'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1774,7 +1907,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse112' aria-expanded='true'>Mental Illness Type Bipolar Disorder</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse112' aria-expanded='true'>Mental Illness Type Bipolar
+                                    Disorder</button>
                                 <div class='collapse' id='collapse112'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1785,7 +1920,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse113' aria-expanded='true'>Mental Illness Type Bulimia Nervosa</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse113' aria-expanded='true'>Mental Illness Type Bulimia
+                                    Nervosa</button>
                                 <div class='collapse' id='collapse113'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1796,7 +1933,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse114' aria-expanded='true'>Mental Illness Type Depression</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse114' aria-expanded='true'>Mental Illness Type
+                                    Depression</button>
                                 <div class='collapse' id='collapse114'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1807,7 +1946,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse115' aria-expanded='true'>Mental Illness Type Ptsd Posttraumatic Stress Disorder</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse115' aria-expanded='true'>Mental Illness Type Ptsd
+                                    Posttraumatic Stress Disorder</button>
                                 <div class='collapse' id='collapse115'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1818,7 +1959,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse116' aria-expanded='true'>Mental Illness Type Schizophrenia</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse116' aria-expanded='true'>Mental Illness Type
+                                    Schizophrenia</button>
                                 <div class='collapse' id='collapse116'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1829,7 +1972,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse117' aria-expanded='true'>Mental Illness Type Substance Abuse</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse117' aria-expanded='true'>Mental Illness Type Substance
+                                    Abuse</button>
                                 <div class='collapse' id='collapse117'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1840,7 +1985,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse118' aria-expanded='true'>Mental Illness Type Unspecified</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse118' aria-expanded='true'>Mental Illness Type
+                                    Unspecified</button>
                                 <div class='collapse' id='collapse118'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -1851,7 +1998,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse119' aria-expanded='true'>Migraine</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse119' aria-expanded='true'>Migraine</button>
                                 <div class='collapse' id='collapse119'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -1864,7 +2012,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse120' aria-expanded='true'>Milk Cheese Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse120' aria-expanded='true'>Milk Cheese Frequency</button>
                                 <div class='collapse' id='collapse120'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1878,7 +2027,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse121' aria-expanded='true'>Milk Substitute Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse121' aria-expanded='true'>Milk Substitute
+                                    Frequency</button>
                                 <div class='collapse' id='collapse121'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -1892,7 +2043,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse122' aria-expanded='true'>Multivitamin</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse122' aria-expanded='true'>Multivitamin</button>
                                 <div class='collapse' id='collapse122'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1903,7 +2055,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse123' aria-expanded='true'>Nail Biter</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse123' aria-expanded='true'>Nail Biter</button>
                                 <div class='collapse' id='collapse123'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -1914,7 +2067,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse124' aria-expanded='true'>Non Food Allergies Beestings</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse124' aria-expanded='true'>Non Food Allergies
+                                    Beestings</button>
                                 <div class='collapse' id='collapse124'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1923,7 +2078,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse125' aria-expanded='true'>Non Food Allergies Drug Eg Penicillin</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse125' aria-expanded='true'>Non Food Allergies Drug Eg
+                                    Penicillin</button>
                                 <div class='collapse' id='collapse125'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1932,7 +2089,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse126' aria-expanded='true'>Non Food Allergies Pet Dander</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse126' aria-expanded='true'>Non Food Allergies Pet
+                                    Dander</button>
                                 <div class='collapse' id='collapse126'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1941,7 +2100,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse127' aria-expanded='true'>Non Food Allergies Poison Ivyoak</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse127' aria-expanded='true'>Non Food Allergies Poison
+                                    Ivyoak</button>
                                 <div class='collapse' id='collapse127'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1950,7 +2111,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse128' aria-expanded='true'>Non Food Allergies Sun</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse128' aria-expanded='true'>Non Food Allergies Sun</button>
                                 <div class='collapse' id='collapse128'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1959,7 +2121,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse129' aria-expanded='true'>Non Food Allergies Unspecified</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse129' aria-expanded='true'>Non Food Allergies
+                                    Unspecified</button>
                                 <div class='collapse' id='collapse129'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -1968,7 +2132,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse130' aria-expanded='true'>Olive Oil</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse130' aria-expanded='true'>Olive Oil</button>
                                 <div class='collapse' id='collapse130'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1982,7 +2147,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse131' aria-expanded='true'>One Liter Of Water A Day Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse131' aria-expanded='true'>One Liter Of Water A Day
+                                    Frequency</button>
                                 <div class='collapse' id='collapse131'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -1996,7 +2163,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse132' aria-expanded='true'>Other Supplement Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse132' aria-expanded='true'>Other Supplement
+                                    Frequency</button>
                                 <div class='collapse' id='collapse132'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>true</li>
@@ -2007,7 +2176,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse133' aria-expanded='true'>Pets Other</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse133' aria-expanded='true'>Pets Other</button>
                                 <div class='collapse' id='collapse133'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2018,7 +2188,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse134' aria-expanded='true'>Physical Specimen Location</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse134' aria-expanded='true'>Physical Specimen
+                                    Location</button>
                                 <div class='collapse' id='collapse134'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>UCSDMI</li>
@@ -2026,7 +2198,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse135' aria-expanded='true'>Physical Specimen Remaining</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse135' aria-expanded='true'>Physical Specimen
+                                    Remaining</button>
                                 <div class='collapse' id='collapse135'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1</li>
@@ -2035,7 +2209,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse136' aria-expanded='true'>Pku</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse136' aria-expanded='true'>Pku</button>
                                 <div class='collapse' id='collapse136'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -2048,7 +2223,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse137' aria-expanded='true'>Pool Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse137' aria-expanded='true'>Pool Frequency</button>
                                 <div class='collapse' id='collapse137'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2062,7 +2238,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse138' aria-expanded='true'>Poultry Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse138' aria-expanded='true'>Poultry Frequency</button>
                                 <div class='collapse' id='collapse138'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Occasionally (1-2 times/week)</li>
@@ -2076,7 +2253,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse139' aria-expanded='true'>Pregnant</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse139' aria-expanded='true'>Pregnant</button>
                                 <div class='collapse' id='collapse139'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -2088,7 +2266,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse140' aria-expanded='true'>Prepared Meals Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse140' aria-expanded='true'>Prepared Meals Frequency</button>
                                 <div class='collapse' id='collapse140'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2102,7 +2281,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse141' aria-expanded='true'>Probiotic Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse141' aria-expanded='true'>Probiotic Frequency</button>
                                 <div class='collapse' id='collapse141'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2116,7 +2296,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse142' aria-expanded='true'>Public</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse142' aria-expanded='true'>Public</button>
                                 <div class='collapse' id='collapse142'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>1</li>
@@ -2125,7 +2306,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse143' aria-expanded='true'>Race</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse143' aria-expanded='true'>Race</button>
                                 <div class='collapse' id='collapse143'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Caucasian</li>
@@ -2139,7 +2321,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse144' aria-expanded='true'>Ready To Eat Meals Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse144' aria-expanded='true'>Ready To Eat Meals
+                                    Frequency</button>
                                 <div class='collapse' id='collapse144'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2153,7 +2337,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse145' aria-expanded='true'>Red Meat Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse145' aria-expanded='true'>Red Meat Frequency</button>
                                 <div class='collapse' id='collapse145'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2167,7 +2352,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse146' aria-expanded='true'>Roommates</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse146' aria-expanded='true'>Roommates</button>
                                 <div class='collapse' id='collapse146'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>None</li>
@@ -2181,7 +2367,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse147' aria-expanded='true'>Roommates In Study</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse147' aria-expanded='true'>Roommates In Study</button>
                                 <div class='collapse' id='collapse147'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2193,7 +2380,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse148' aria-expanded='true'>Salted Snacks Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse148' aria-expanded='true'>Salted Snacks Frequency</button>
                                 <div class='collapse' id='collapse148'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Rarely (less than once/week)</li>
@@ -2207,7 +2395,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse149' aria-expanded='true'>Sample Type</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse149' aria-expanded='true'>Sample Type</button>
                                 <div class='collapse' id='collapse149'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Stool</li>
@@ -2228,7 +2417,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse150' aria-expanded='true'>Scientific Name</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse150' aria-expanded='true'>Scientific Name</button>
                                 <div class='collapse' id='collapse150'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>human gut metagenome</li>
@@ -2243,7 +2433,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse151' aria-expanded='true'>Seafood Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse151' aria-expanded='true'>Seafood Frequency</button>
                                 <div class='collapse' id='collapse151'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Occasionally (1-2 times/week)</li>
@@ -2257,7 +2448,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse152' aria-expanded='true'>Seasonal Allergies</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse152' aria-expanded='true'>Seasonal Allergies</button>
                                 <div class='collapse' id='collapse152'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -2268,7 +2460,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse153' aria-expanded='true'>Sex</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse153' aria-expanded='true'>Sex</button>
                                 <div class='collapse' id='collapse153'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>female</li>
@@ -2280,7 +2473,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse154' aria-expanded='true'>Sibo</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse154' aria-expanded='true'>Sibo</button>
                                 <div class='collapse' id='collapse154'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -2293,7 +2487,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse155' aria-expanded='true'>Skin Condition</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse155' aria-expanded='true'>Skin Condition</button>
                                 <div class='collapse' id='collapse155'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -2306,7 +2501,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse156' aria-expanded='true'>Sleep Duration</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse156' aria-expanded='true'>Sleep Duration</button>
                                 <div class='collapse' id='collapse156'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>7-8 hours</li>
@@ -2320,7 +2516,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse157' aria-expanded='true'>Smoking Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse157' aria-expanded='true'>Smoking Frequency</button>
                                 <div class='collapse' id='collapse157'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2334,7 +2531,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse158' aria-expanded='true'>Softener</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse158' aria-expanded='true'>Softener</button>
                                 <div class='collapse' id='collapse158'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>false</li>
@@ -2345,7 +2543,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse159' aria-expanded='true'>Specialized Diet Exclude Dairy</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse159' aria-expanded='true'>Specialized Diet Exclude
+                                    Dairy</button>
                                 <div class='collapse' id='collapse159'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2356,7 +2556,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse160' aria-expanded='true'>Specialized Diet Exclude Nightshades</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse160' aria-expanded='true'>Specialized Diet Exclude
+                                    Nightshades</button>
                                 <div class='collapse' id='collapse160'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2367,7 +2569,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse161' aria-expanded='true'>Specialized Diet Exclude Refined Sugars</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse161' aria-expanded='true'>Specialized Diet Exclude Refined
+                                    Sugars</button>
                                 <div class='collapse' id='collapse161'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2378,7 +2582,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse162' aria-expanded='true'>Specialized Diet Fodmap</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse162' aria-expanded='true'>Specialized Diet Fodmap</button>
                                 <div class='collapse' id='collapse162'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2389,7 +2594,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse163' aria-expanded='true'>Specialized Diet Halaal</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse163' aria-expanded='true'>Specialized Diet Halaal</button>
                                 <div class='collapse' id='collapse163'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2400,7 +2606,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse164' aria-expanded='true'>Specialized Diet I Do Not Eat A Specialized Diet</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse164' aria-expanded='true'>Specialized Diet I Do Not Eat A
+                                    Specialized Diet</button>
                                 <div class='collapse' id='collapse164'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2411,7 +2619,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse165' aria-expanded='true'>Specialized Diet Kosher</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse165' aria-expanded='true'>Specialized Diet Kosher</button>
                                 <div class='collapse' id='collapse165'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2422,7 +2631,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse166' aria-expanded='true'>Specialized Diet Modified Paleo Diet</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse166' aria-expanded='true'>Specialized Diet Modified Paleo
+                                    Diet</button>
                                 <div class='collapse' id='collapse166'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2433,7 +2644,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse167' aria-expanded='true'>Specialized Diet Other Restrictions Not Described Here</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse167' aria-expanded='true'>Specialized Diet Other
+                                    Restrictions Not Described Here</button>
                                 <div class='collapse' id='collapse167'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2444,7 +2657,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse168' aria-expanded='true'>Specialized Diet Paleodiet Or Primal Diet</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse168' aria-expanded='true'>Specialized Diet Paleodiet Or
+                                    Primal Diet</button>
                                 <div class='collapse' id='collapse168'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2455,7 +2670,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse169' aria-expanded='true'>Specialized Diet Raw Food Diet</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse169' aria-expanded='true'>Specialized Diet Raw Food
+                                    Diet</button>
                                 <div class='collapse' id='collapse169'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2466,7 +2683,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse170' aria-expanded='true'>Specialized Diet Unspecified</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse170' aria-expanded='true'>Specialized Diet
+                                    Unspecified</button>
                                 <div class='collapse' id='collapse170'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2477,7 +2696,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse171' aria-expanded='true'>Specialized Diet Westenprice Or Other Lowgrain Low Processed Fo</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse171' aria-expanded='true'>Specialized Diet Westenprice Or
+                                    Other Lowgrain Low Processed Fo</button>
                                 <div class='collapse' id='collapse171'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2488,7 +2709,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse172' aria-expanded='true'>State</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse172' aria-expanded='true'>State</button>
                                 <div class='collapse' id='collapse172'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>MA</li>
@@ -2652,7 +2874,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse173' aria-expanded='true'>Subset Age</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse173' aria-expanded='true'>Subset Age</button>
                                 <div class='collapse' id='collapse173'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2661,7 +2884,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse174' aria-expanded='true'>Subset Antibiotic History</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse174' aria-expanded='true'>Subset Antibiotic
+                                    History</button>
                                 <div class='collapse' id='collapse174'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2670,7 +2895,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse175' aria-expanded='true'>Subset Bmi</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse175' aria-expanded='true'>Subset Bmi</button>
                                 <div class='collapse' id='collapse175'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2679,7 +2905,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse176' aria-expanded='true'>Subset Diabetes</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse176' aria-expanded='true'>Subset Diabetes</button>
                                 <div class='collapse' id='collapse176'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2688,7 +2915,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse177' aria-expanded='true'>Subset Healthy</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse177' aria-expanded='true'>Subset Healthy</button>
                                 <div class='collapse' id='collapse177'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2697,7 +2925,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse178' aria-expanded='true'>Subset Ibd</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse178' aria-expanded='true'>Subset Ibd</button>
                                 <div class='collapse' id='collapse178'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2706,7 +2935,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse179' aria-expanded='true'>Sugar Sweetened Drink Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse179' aria-expanded='true'>Sugar Sweetened Drink
+                                    Frequency</button>
                                 <div class='collapse' id='collapse179'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2720,7 +2951,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse180' aria-expanded='true'>Sugary Sweets Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse180' aria-expanded='true'>Sugary Sweets Frequency</button>
                                 <div class='collapse' id='collapse180'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Occasionally (1-2 times/week)</li>
@@ -2734,7 +2966,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse181' aria-expanded='true'>Taxon Id</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse181' aria-expanded='true'>Taxon Id</button>
                                 <div class='collapse' id='collapse181'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>256318</li>
@@ -2743,7 +2976,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse182' aria-expanded='true'>Teethbrushing Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse182' aria-expanded='true'>Teethbrushing Frequency</button>
                                 <div class='collapse' id='collapse182'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -2757,7 +2991,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse183' aria-expanded='true'>Thyroid</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse183' aria-expanded='true'>Thyroid</button>
                                 <div class='collapse' id='collapse183'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>I do not have this condition</li>
@@ -2770,7 +3005,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse184' aria-expanded='true'>Title</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse184' aria-expanded='true'>Title</button>
                                 <div class='collapse' id='collapse184'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>American Gut Project</li>
@@ -2778,7 +3014,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse185' aria-expanded='true'>Tonsils Removed</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse185' aria-expanded='true'>Tonsils Removed</button>
                                 <div class='collapse' id='collapse185'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2790,7 +3027,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse186' aria-expanded='true'>Types Of Plants</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse186' aria-expanded='true'>Types Of Plants</button>
                                 <div class='collapse' id='collapse186'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2804,7 +3042,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse187' aria-expanded='true'>Vegetable Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse187' aria-expanded='true'>Vegetable Frequency</button>
                                 <div class='collapse' id='collapse187'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Daily</li>
@@ -2818,7 +3057,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse188' aria-expanded='true'>Vitamin B Supplement Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse188' aria-expanded='true'>Vitamin B Supplement
+                                    Frequency</button>
                                 <div class='collapse' id='collapse188'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2832,7 +3073,9 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse189' aria-expanded='true'>Vitamin D Supplement Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse189' aria-expanded='true'>Vitamin D Supplement
+                                    Frequency</button>
                                 <div class='collapse' id='collapse189'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Regularly (3-5 times/week)</li>
@@ -2846,7 +3089,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse190' aria-expanded='true'>Vivid Dreams</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse190' aria-expanded='true'>Vivid Dreams</button>
                                 <div class='collapse' id='collapse190'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Not provided</li>
@@ -2860,7 +3104,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse191' aria-expanded='true'>Weight Change</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse191' aria-expanded='true'>Weight Change</button>
                                 <div class='collapse' id='collapse191'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Remained stable</li>
@@ -2872,7 +3117,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse192' aria-expanded='true'>Weight Kg</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse192' aria-expanded='true'>Weight Kg</button>
                                 <div class='collapse' id='collapse192'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>0</li>
@@ -2881,7 +3127,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse193' aria-expanded='true'>Weight Units</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse193' aria-expanded='true'>Weight Units</button>
                                 <div class='collapse' id='collapse193'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>kilograms</li>
@@ -2890,7 +3137,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse194' aria-expanded='true'>Whole Eggs</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse194' aria-expanded='true'>Whole Eggs</button>
                                 <div class='collapse' id='collapse194'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Never</li>
@@ -2904,7 +3152,8 @@
                                 </div>
                             </li>
                             <li class='mb-1'>
-                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse' data-bs-target='#collapse195' aria-expanded='true'>Whole Grain Frequency</button>
+                                <button class='btn d-inline-flex align-items-center rounded' data-bs-toggle='collapse'
+                                    data-bs-target='#collapse195' aria-expanded='true'>Whole Grain Frequency</button>
                                 <div class='collapse' id='collapse195'>
                                     <ul class='list-unstyled fw-normal pb-1 small'>
                                         <li>Occasionally (1-2 times/week)</li>
@@ -2921,100 +3170,114 @@
                     </nav>
                 </aside>
             </div>
-           
-            <!--Informational Test Section-->
-            <div class="col-md-auto">         
-                <!--Description-->
-                <p id="descTest" class="lead"></p>
-                <table class="table">
-                    <tbody id="myTableTest"></tbody>
-                </table>
-            </div>
-        
 
-            <!--Informational Control Section-->
-            <div id="ICS" class="col-md-auto">
-                <!--Description-->
-                <p id="descControl" class="lead"></p>
-                <table class="table">
-                    <tbody id="myTableControl"></tbody>
-                </table>
-            </div> 
-            
-            <div class="col-md-auto">
-                <div id="progressTest" class="mb-1 progress d-none" style="height: 30px;">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            <!--Explainer Section-->
+            <div id="explainer" class="col-md-9 slide-up">
+                <div class="glass-panel">
+                    <h3 class="text-white mb-3">About the American Gut Project</h3>
+                    <p class="lead">The American Gut Project is a citizen science initiative to understand the human
+                        microbiome. This tool allows you to query the database for specific sample attributes.</p>
+                    <hr style="border-color: rgba(255,255,255,0.2);">
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h4 class="text-white h5">How to Search</h4>
+                            <p class="text-white-50 small">Our search uses the <strong>Double Metaphone</strong>
+                                algorithm, which matches words by how they <em>sound</em> rather than exact spelling.
+                                This allows for fuzzy matching (e.g., 'Schmidt' matches 'Smith').</p>
+                            <p class="text-white-50 small">You can use operators like <code>==</code>, <code>!=</code>,
+                                <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> to refine
+                                your queries.
+                            </p>
+                            <p class="text-white-50 small"><strong>Example:</strong>
+                                <code>alzheimers == diag / alzheimers != diag</code> (Test vs Control)
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-white h5">Using the Sidebar</h4>
+                            <p class="text-white-50 small">Use the <strong>Attributes</strong> sidebar on the left to
+                                explore available categories. Click on a category to expand it and see specific values
+                                you can query for.</p>
+                        </div>
+                    </div>
                 </div>
-                <div id="progressControl" class="mb-1 progress d-none" style="height: 30px;">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="btn-group-sm btn-group-vertical">
-                    <!--Download Test Button-->
-                    <input type="button" class="mb-1 btn btn-primary d-none" id="btnTest" value="Download test group sample data" /> 
-                    <!--Download Control Button-->
-                    <input type="button" class="mb-1 btn btn-primary d-none" id="btnControl" value="Download control sample data" /> 
-                    <!--Export Test Button-->
-                    <input type="button" class="mb-1 btn btn-secondary d-none" id="btnTestCSV" value="Export test group accession CSV" /> 
-                    <!--Export Control Button-->
-                    <input type="button" class="mb-1 btn btn-secondary d-none" id="btnControlCSV" value="Export control group accession CSV" /> 
+            </div>
+
+            <!--Results Container-->
+            <div id="results-container" class="col-md-9 d-none">
+                <div class="row justify-content-center w-100 m-0">
+                    <!--Informational Test Section-->
+                    <div class="col-md-auto slide-up" style="animation-delay: 0.2s;">
+                        <!--Description-->
+                        <p id="descTest" class="lead"></p>
+                        <div class="glass-panel p-0 overflow-hidden">
+                            <div
+                                class="p-3 d-flex justify-content-start align-items-center bg-dark-glass border-bottom border-glass gap-3">
+                                <button type="button" class="btn btn-glass-primary btn-sm d-none" id="btnTest">Download
+                                    Samples</button>
+                                <button type="button" class="btn btn-glass btn-sm d-none" id="btnTestCSV">Export
+                                    CSV</button>
+                            </div>
+                            <table class="table table-hover mb-0">
+                                <thead class="thead-glass">
+                                    <tr>
+                                        <th>Sample</th>
+                                        <th>Age</th>
+                                        <th>BMI</th>
+                                        <th>Sex</th>
+                                        <th>Body Site</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableTest"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!--Informational Control Section-->
+                    <div id="ICS" class="col-md-auto slide-up" style="animation-delay: 0.4s;">
+                        <!--Description-->
+                        <p id="descControl" class="lead"></p>
+                        <div class="glass-panel p-0 overflow-hidden">
+                            <div
+                                class="p-3 d-flex justify-content-start align-items-center bg-dark-glass border-bottom border-glass gap-3">
+                                <button type="button" class="btn btn-glass-primary btn-sm d-none"
+                                    id="btnControl">Download
+                                    Samples</button>
+                                <button type="button" class="btn btn-glass btn-sm d-none" id="btnControlCSV">Export
+                                    CSV</button>
+                            </div>
+                            <table class="table table-hover mb-0">
+                                <thead class="thead-glass">
+                                    <tr>
+                                        <th>Sample</th>
+                                        <th>Age</th>
+                                        <th>BMI</th>
+                                        <th>Sex</th>
+                                        <th>Body Site</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableControl"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
     <script src="{% static 'javascript/fetching.js' %}"></script>
-    
+
     <script>
-        
-        //Download Control Sample Data
-        $("#btnTest").click(async function(e, tc="Test")
-        {
-            e.preventDefault();
 
-            $("#btnControl").addClass('d-none');
+        // Inline scripts removed to prevent conflict with ajax.js
 
-            data = linkRetrieval(tc)  
-
-            links = data[0]
-            sampleNames = data[1]
-            totalLinks = data[2]
-            
-            for (var i=0; i<links.length; i++){
-                await downloadAndZip(links[i], sampleNames[i], totalLinks.length, tc)
-            }
-
-            $("#btnControl").removeClass('d-none');
-            $("#btn".concat(tc)).removeClass('d-none');
-            $("#progress".concat(tc)).addClass('d-none');
-        });
-
-        //Download Control Sample Data
-        $("#btnControl").click(async function(e, tc="Control")
-        {
-            e.preventDefault();
-
-            $("#btnTest").addClass('d-none');
-
-            data = linkRetrieval(tc)  
-
-            links = data[0]
-            sampleNames = data[1]
-            totalLinks = data[2]
-            
-            for (var i=0; i<links.length; i++){
-                await downloadAndZip(links[i], sampleNames[i], totalLinks.length, tc)
-            }
-
-            $("#btnTest").removeClass('d-none')
-            $("#btn".concat(tc)).removeClass('d-none');
-            $("#progress".concat(tc)).addClass('d-none');
-        });
- 
     </script>
     <!--ajax forms contains updates-->
-    <script src="{% static 'javascript/ajax.js' %}?v=2"></script>
+    <script src="{% static 'javascript/ajax.js' %}?v=4"></script>
     <!--Bootstrap-->
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="{% static 'bs5-js/bootstrap.js' %}"></script>
-  </body>
+</body>
+
 </html>
