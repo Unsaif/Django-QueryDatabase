@@ -35,7 +35,14 @@ def accession_retrieval(result, cursor):
     ftps = []
     for i in sample_accessions:
         accessions.append(i[4])
-        ftps.append(i[2])
+        # Force https for ftp links
+        ftp_link = i[2]
+        if ftp_link:
+            if ftp_link.startswith('http://'):
+                ftp_link = ftp_link.replace('http://', 'https://', 1)
+            elif not ftp_link.startswith('https://'):
+                ftp_link = 'https://' + ftp_link
+        ftps.append(ftp_link)
 
     return ftps, accessions
 

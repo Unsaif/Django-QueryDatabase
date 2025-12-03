@@ -36,3 +36,4 @@ class AjaxFormMixin(object):
                     },
                     status=500,
                 )
+        return response
