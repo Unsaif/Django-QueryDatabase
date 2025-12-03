@@ -124,21 +124,17 @@ $(document).ready(function () {
         $("#".concat(btn).concat("CSV")).removeClass('d-none');
         $("#ICS").removeClass('d-none');
 
-        var description = document.getElementById(desc)
+        var description = document.getElementById("desc".concat(tc));
+        description.innerHTML = "<strong>" + data[individuals] + " Samples</strong> matched your query";
 
-        if (tc === "Control") { var text = `Control group was chosen from ${data[individuals]} samples` }
-        else {
+        if (tc !== "Control") {
             try {
                 $("#btnControl").addClass('d-none');
                 $("#btnControlCSV").addClass('d-none');
                 $("#ICS").addClass('d-none');
             }
             catch (err) { }
-
-            var text = `There are ${data[individuals]} samples who match your query`
         }
-
-        description.textContent = text
 
         var q = data[query]
         var accession = data[accession]

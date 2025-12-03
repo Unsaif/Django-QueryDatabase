@@ -19,17 +19,22 @@
 <body class="fade-in">
     <div class="container-fluid">
         <!--Query Bar my-ajax-form {{ request.build_absolute_uri|safe }}-->
+        <!--Query Bar-->
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col-md-10">
                 <div class="glass-panel">
                     <form class='my-ajax-form' method='POST' action='.' data-url='{{ request.path }}'> {% csrf_token %}
                         <div class="row align-items-center">
                             <div class="col-md-3">
-                                <h2 class="mb-0 text-white">QueryDB</h2>
+                                <h2 class="mb-0 text-white fw-light">QueryDB</h2>
                             </div>
                             <div class='col-md-9'>
-                                <input type="text" class="form-control form-control-lg" name="query" maxlength="255"
-                                    required id="id_query" placeholder="Enter your query..." value="" target="_query">
+                                <div class="search-wrapper">
+                                    <input type="text" class="form-control input-glass" name="query" maxlength="255"
+                                        required id="id_query"
+                                        placeholder="Enter attributes (e.g., 'Antibiotics', 'Diet')..." value=""
+                                        target="_query">
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -3209,8 +3214,8 @@
                     <!--Informational Test Section-->
                     <div class="col-md-auto slide-up" style="animation-delay: 0.2s;">
                         <!--Description-->
-                        <p id="descTest" class="lead"></p>
                         <div class="glass-panel p-0 overflow-hidden">
+                            <h5 id="descTest" class="text-white m-3"></h5>
                             <div
                                 class="p-3 d-flex justify-content-start align-items-center bg-dark-glass border-bottom border-glass gap-3">
                                 <button type="button" class="btn btn-glass-primary btn-sm d-none" id="btnTest">Download
@@ -3237,8 +3242,8 @@
                     <!--Informational Control Section-->
                     <div id="ICS" class="col-md-auto slide-up" style="animation-delay: 0.4s;">
                         <!--Description-->
-                        <p id="descControl" class="lead"></p>
                         <div class="glass-panel p-0 overflow-hidden">
+                            <h5 id="descControl" class="text-white m-3"></h5>
                             <div
                                 class="p-3 d-flex justify-content-start align-items-center bg-dark-glass border-bottom border-glass gap-3">
                                 <button type="button" class="btn btn-glass-primary btn-sm d-none"
